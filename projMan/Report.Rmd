@@ -1,0 +1,13 @@
+---
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+params:
+    test: NA
+---
+<center> Thank you for choosing CUI for all your property management needs. </center> <br/>
+
+```{r echo = F, out.height='400px', out.width = '800px'}
+include_graphics("userImage1.png")
+```

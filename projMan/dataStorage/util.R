@@ -6,7 +6,7 @@ taskTypeChoices = c("A/C Repair", "Fix Break", "Paint", "Routine Maintenance")
 assignedToChoices = c("Nate", "Michael", "Cakeo")
 propertyChoices = c("A", "B", "C", "D", "E", "F", "G", "H")
 
-properties = data.frame("propertyName" = c("A", "B", "C", "D", "E", "F", "G", "H"),
+properties = data.frame("propertyName" = c("A", "B", "C", "D", "E", "F2", "G", "H"),
                         "Lat" = c(29.553948, 29.544885, 29.56, 29.543, 29.545, 29.5501, 29.551, 29.552),
                         "Lon" = c(-81.175219, -81.257373, -81.2, -81.19, -81.21, -81.22, -81.24, -81.25)#,
                         # "taskType" = c("","","","","","","",""),
@@ -16,7 +16,7 @@ properties = data.frame("propertyName" = c("A", "B", "C", "D", "E", "F", "G", "H
                         # "assignedTo" = c("","","","","","","","")
                         ) 
 
-labsForPropManagement <- function(data, label1, label2, label3) {
+labsForMap <- function(data, label1, label2, label3) {
   lapply(seq(nrow(data)), function(i) {
   paste0( data[i, label1], '<br/>', 
           data[i, label2], '<br/>',
@@ -24,8 +24,16 @@ labsForPropManagement <- function(data, label1, label2, label3) {
 })
 }
 
+labsForCalendar <- function(data, label1, label2, label3) {
+  lapply(seq(nrow(data)), function(i) {
+    paste0( data[i, label1], ' - ', data[i, label2], ', assigned to: ',
+            data[i, label3]
+  )
+  })
+}
 
-outputDir <- "dataStorage/responses"
+
+outputDir <- "projMan/dataStorage/responses"
 
 saveData <- function(data,propertyName) {
   # data <- t(data)
